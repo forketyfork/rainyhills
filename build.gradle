@@ -1,0 +1,105 @@
+// plugin for adding bom dependencies, similar to maven's import scope
+plugins {
+    id "io.spring.dependency-management" version "1.0.1.RELEASE"
+}
+
+apply plugin: 'war'
+apply plugin: 'pmd'
+
+group = 'org.forketyfork'
+version = '0.0.1-SNAPSHOT'
+description = "rainyhills"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+// adding a separate source set for integration tests
+// it should have output of the main and test source sets on its classpath
+sourceSets {
+    integrationTest {
+        java {
+            compileClasspath += main.output + test.output
+            runtimeClasspath += main.output + test.output
+            srcDir file('src/integration-test/java')
+        }
+        resources.srcDir file('src/integration-test/resources')
+    }
+}
+
+// creating compile and runtime dependency configurations for integration testing
+configurations {
+    integrationTestCompile.extendsFrom testCompile
+    integrationTestRuntime.extendsFrom testRuntime
+}
+
+dependencyManagement {
+    imports {
+        // importing the Arquillian BOM-dependency
+        mavenBom 'org.jboss.arquillian:arquillian-bom:1.1.13.Final'
+    }
+}
+
+dependencies {
+    // provided by the Java EE container
+    providedCompile 'javax:javaee-api:7.0'
+
+    testCompile 'junit:junit:4.12'
+
+    integrationTestCompile 'org.jboss.arquillian.junit:arquillian-junit-container'
+    integrationTestCompile 'org.jboss.arquillian.container:arquillian-weld-ee-embedded-1.1:1.0.0.CR9'
+    integrationTestCompile 'org.jboss.weld:weld-core:2.4.2.SP1'
+    integrationTestCompile 'org.slf4j:slf4j-simple:1.7.25'
+}
+
+// defining a separate task for integration testing
+task integrationTest(type: Test) {
+    testClassesDir = sourceSets.integrationTest.output.classesDir
+    classpath = sourceSets.integrationTest.runtimeClasspath
+}
+
+// including the integrationTest task between the test and check tasks in the build cycle
+check.dependsOn integrationTest
+integrationTest.mustRunAfter test
+
+// putting the integrationTest reports in a separate directory
+tasks.withType(Test) {
+    reports.html.destination = file("${reporting.baseDir}/${name}")
+}
+
+// logging the test and integrationTest results during the build
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+integrationTest {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+// the output name of build/lib/rainyhills.war
+war.archiveName = "rainyhills.war"
+
+// PMD setup
+pmd {
+    consoleOutput = true
+    toolVersion = '5.5.4'
+    ruleSetFiles = files('pmd-ruleset.xml')
+}
+
+// heroku deployment
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
+
+task copyToTarget(type: Copy) {
+    into "target"
+    from("$buildDir/libs")
+}
+
+stage.dependsOn(copyToTarget)

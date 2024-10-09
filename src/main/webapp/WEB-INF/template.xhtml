@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <h:outputStylesheet name="css/bootstrap.min.css"/>
+    <h:outputStylesheet name="css/styles.css"/>
+    <title>#{messages.siteTitle}</title>
+</h:head>
+
+<h:body>
+
+    <div class="container">
+        <h1><ui:insert name="heading"/></h1>
+
+        <ui:insert name="content"/>
+    </div>
+    <h:outputScript name="js/jquery.min.js"/>
+    <h:outputScript name="js/tether.min.js"/>
+    <h:outputScript name="js/bootstrap.min.js"/>
+
+</h:body>
+
+</html>
