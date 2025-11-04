@@ -1,6 +1,5 @@
-// plugin for adding bom dependencies, similar to maven's import scope
 plugins {
-    id "io.spring.dependency-management" version "1.0.1.RELEASE"
+    id "io.spring.dependency-management" version "1.1.4"
 }
 
 apply plugin: 'war'
@@ -30,10 +29,9 @@ sourceSets {
     }
 }
 
-// creating compile and runtime dependency configurations for integration testing
 configurations {
-    integrationTestCompile.extendsFrom testCompile
-    integrationTestRuntime.extendsFrom testRuntime
+    integrationTestImplementation.extendsFrom testImplementation
+    integrationTestRuntimeOnly.extendsFrom testRuntimeOnly
 }
 
 dependencyManagement {
@@ -44,30 +42,32 @@ dependencyManagement {
 }
 
 dependencies {
-    // provided by the Java EE container
     providedCompile 'javax:javaee-api:7.0'
 
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 
-    integrationTestCompile 'org.jboss.arquillian.junit:arquillian-junit-container'
-    integrationTestCompile 'org.jboss.arquillian.container:arquillian-weld-ee-embedded-1.1:1.0.0.CR9'
-    integrationTestCompile 'org.jboss.weld:weld-core:2.4.2.SP1'
-    integrationTestCompile 'org.slf4j:slf4j-simple:1.7.25'
+    integrationTestImplementation 'org.jboss.arquillian.junit:arquillian-junit-container'
+    integrationTestImplementation 'org.jboss.arquillian.container:arquillian-weld-ee-embedded-1.1:1.0.0.CR9'
+    integrationTestImplementation 'org.jboss.weld:weld-core:2.4.2.SP1'
+    integrationTestImplementation 'org.slf4j:slf4j-simple:1.7.25'
 }
 
-// defining a separate task for integration testing
 task integrationTest(type: Test) {
-    testClassesDir = sourceSets.integrationTest.output.classesDir
+    testClassesDirs = sourceSets.integrationTest.output.classesDirs
     classpath = sourceSets.integrationTest.runtimeClasspath
+    jvmArgs = [
+        '--add-opens=java.base/java.lang=ALL-UNNAMED',
+        '--add-opens=java.base/java.lang.reflect=ALL-UNNAMED',
+        '--add-opens=java.base/java.util=ALL-UNNAMED'
+    ]
 }
 
 // including the integrationTest task between the test and check tasks in the build cycle
 check.dependsOn integrationTest
 integrationTest.mustRunAfter test
 
-// putting the integrationTest reports in a separate directory
 tasks.withType(Test) {
-    reports.html.destination = file("${reporting.baseDir}/${name}")
+    reports.html.outputLocation = file("${reporting.baseDir}/${name}")
 }
 
 // logging the test and integrationTest results during the build
@@ -83,13 +83,11 @@ integrationTest {
     }
 }
 
-// the output name of build/lib/rainyhills.war
-war.archiveName = "rainyhills.war"
+war.archiveFileName = "rainyhills.war"
 
-// PMD setup
 pmd {
     consoleOutput = true
-    toolVersion = '5.5.4'
+    toolVersion = '6.55.0'
     ruleSetFiles = files('pmd-ruleset.xml')
 }
 

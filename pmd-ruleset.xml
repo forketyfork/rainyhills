@@ -58,6 +58,7 @@
         <exclude name="AvoidFieldNameMatchingMethodName"/>
         <exclude name="AvoidFieldNameMatchingTypeName"/>
         <exclude name="MethodNamingConventions"/>
+        <exclude name="ClassNamingConventions"/>
     </rule>
     <rule ref="rulesets/java/strictexception.xml">
         <exclude name="AvoidCatchingGenericException"/>
@@ -81,6 +82,7 @@
         <exclude name="AccessorClassGeneration"/>
         <exclude name="CloseResource"/>
         <exclude name="TooFewBranchesForASwitchStatement"/>
+        <exclude name="DataClass"/>
     </rule>
     <rule ref="rulesets/java/optimizations.xml">
         <exclude name="MethodArgumentCouldBeFinal"/>
