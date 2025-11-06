@@ -1,3 +1,7 @@
+[![Build status](https://github.com/forketyfork/rainyhills/actions/workflows/build.yml/badge.svg)](https://github.com/forketyfork/rainyhills/actions/workflows/build.yml)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Java](https://img.shields.io/badge/language-Java-orange.svg)](https://www.java.com/)
+
 ### Application Description
 Write an application which takes an array as an input, and calculates the volume of water which remained after the rain, in units.
 
