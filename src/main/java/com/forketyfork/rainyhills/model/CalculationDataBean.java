@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * A POJO containing the user-submitted input and the calculated result.
  * <p>
- * Created by Sergey Petunin on 26.03.17.
+ * Created by Forketyfork on 26.03.17.
  */
 @Named("calculationData")
 @SessionScoped

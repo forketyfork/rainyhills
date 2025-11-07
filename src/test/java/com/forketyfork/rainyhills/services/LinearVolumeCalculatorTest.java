@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
  *
  * @see LinearVolumeCalculator
  * <p>
- * Created by Sergey Petunin on 23.03.17.
+ * Created by Forketyfork on 23.03.17.
  */
 @RunWith(Parameterized.class)
 public class LinearVolumeCalculatorTest {

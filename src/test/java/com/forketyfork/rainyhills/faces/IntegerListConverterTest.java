@@ -17,7 +17,7 @@ import static org.junit.Assert.assertTrue;
  *
  * @see IntegerListConverter
  * <p>
- * Created by Sergey Petunin on 27.03.17.
+ * Created by Forketyfork on 27.03.17.
  */
 public class IntegerListConverterTest {
 

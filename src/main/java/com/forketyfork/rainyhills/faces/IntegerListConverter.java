@@ -16,7 +16,7 @@ import static java.util.stream.Collectors.toList;
  * The JSF converter for the comma-separated list of integers:
  * "1,2,3" <=> ArrayList(1,2,3)
  * <p>
- * Created by Sergey Petunin on 26.03.17.
+ * Created by Forketyfork on 26.03.17.
  */
 @FacesConverter("com.forketyfork.rainyhills.faces.IntegerListConverter")
 public class IntegerListConverter implements Converter {

@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * A session-scoped bean representing a calculation form controller.
  * <p>
- * Created by Sergey Petunin on 26.03.17.
+ * Created by Forketyfork on 26.03.17.
  */
 @Named("calculation")
 @SessionScoped

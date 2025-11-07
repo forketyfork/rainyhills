@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 /**
  * Utility methods for JSF converters.
  * <p>
- * Created by Sergey Petunin on 26.03.17.
+ * Created by Forketyfork on 26.03.17.
  */
 public final class ConverterUtils {
 

@@ -21,7 +21,7 @@ import java.util.Objects;
  * <p>
  * Thus the algorithm is executed in linear O(n) time and linear O(n) space.
  * <p>
- * Created by Sergey Petunin on 23.03.17.
+ * Created by Forketyfork on 23.03.17.
  */
 @ApplicationScoped
 public class LinearVolumeCalculator implements VolumeCalculator, Serializable {

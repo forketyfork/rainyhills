@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
  * The {@link LinearVolumeCalculator} provides the algorithm for calculating the output value
  * out of the input data. The {@link CalculationBean} provides business logic of the application.
  * <p>
- * Created by Sergey Petunin on 26.03.17.
+ * Created by Forketyfork on 26.03.17.
  */
 public class CalculationBeanIT {
 
