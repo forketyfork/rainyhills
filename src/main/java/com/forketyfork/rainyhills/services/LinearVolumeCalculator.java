@@ -1,6 +1,6 @@
 package com.forketyfork.rainyhills.services;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.Objects;
  * <p>
  * Thus the algorithm is executed in linear O(n) time and linear O(n) space.
  * <p>
- * Created by Sergey Petunin on 23.03.17.
+ * Created by Forketyfork on 23.03.17.
  */
 @ApplicationScoped
 public class LinearVolumeCalculator implements VolumeCalculator, Serializable {
@@ -32,6 +32,7 @@ public class LinearVolumeCalculator implements VolumeCalculator, Serializable {
      * @param heights the list of wall heights
      * @return the volume of water gathered
      */
+    @Override
     public int calculate(List<Integer> heights) {
         Objects.requireNonNull(heights, "The heights list cannot be null");
 

@@ -1,16 +1,16 @@
 package com.forketyfork.rainyhills.model;
 
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Named;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * A POJO containing the user-submitted input and the calculated result.
  * <p>
- * Created by Sergey Petunin on 26.03.17.
+ * Created by Forketyfork on 26.03.17.
  */
 @Named("calculationData")
 @SessionScoped

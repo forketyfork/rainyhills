@@ -1,7 +1,7 @@
 package com.forketyfork.rainyhills.faces;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 /**
  * Utility methods for JSF converters.
  * <p>
- * Created by Sergey Petunin on 26.03.17.
+ * Created by Forketyfork on 26.03.17.
  */
 public final class ConverterUtils {
 

@@ -1,10 +1,10 @@
 package com.forketyfork.rainyhills.faces;
 
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
-import javax.faces.convert.ConverterException;
-import javax.faces.convert.FacesConverter;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.convert.Converter;
+import jakarta.faces.convert.ConverterException;
+import jakarta.faces.convert.FacesConverter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -16,7 +16,7 @@ import static java.util.stream.Collectors.toList;
  * The JSF converter for the comma-separated list of integers:
  * "1,2,3" <=> ArrayList(1,2,3)
  * <p>
- * Created by Sergey Petunin on 26.03.17.
+ * Created by Forketyfork on 26.03.17.
  */
 @FacesConverter("com.forketyfork.rainyhills.faces.IntegerListConverter")
 public class IntegerListConverter implements Converter {

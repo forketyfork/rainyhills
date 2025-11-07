@@ -1,27 +1,27 @@
 package com.forketyfork.rainyhills.faces;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Unit tests for JSF integer list converter.
  * <p>
- * No tests for erroneous input, because the {@link javax.faces.context.FacesContext} should be mocked
+ * No tests for erroneous input, because the {@link jakarta.faces.context.FacesContext} should be mocked
  * for correct error handling, which is not trivial.
  *
  * @see IntegerListConverter
  * <p>
- * Created by Sergey Petunin on 27.03.17.
+ * Created by Forketyfork on 27.03.17.
  */
 public class IntegerListConverterTest {
 
-    private IntegerListConverter converter = new IntegerListConverter();
+    private final IntegerListConverter converter = new IntegerListConverter();
 
     @Test
     public void whenValueIsCommaSeparatedList_thenResultIsListOfIntegers() {
