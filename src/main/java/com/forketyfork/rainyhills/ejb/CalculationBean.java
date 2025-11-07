@@ -3,9 +3,9 @@ package com.forketyfork.rainyhills.ejb;
 import com.forketyfork.rainyhills.model.CalculationDataBean;
 import com.forketyfork.rainyhills.services.VolumeCalculator;
 
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import java.io.Serializable;
 
 /**

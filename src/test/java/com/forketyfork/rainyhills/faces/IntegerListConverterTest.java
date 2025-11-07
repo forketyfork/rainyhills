@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Unit tests for JSF integer list converter.
  * <p>
- * No tests for erroneous input, because the {@link javax.faces.context.FacesContext} should be mocked
+ * No tests for erroneous input, because the {@link jakarta.faces.context.FacesContext} should be mocked
  * for correct error handling, which is not trivial.
  *
  * @see IntegerListConverter

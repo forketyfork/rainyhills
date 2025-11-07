@@ -10,8 +10,8 @@ version = '0.0.1-SNAPSHOT'
 description = "rainyhills"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 repositories {
@@ -36,20 +36,12 @@ configurations {
     integrationTestRuntimeOnly.extendsFrom testRuntimeOnly
 }
 
-dependencyManagement {
-    imports {
-        mavenBom libs.arquillian.bom.get().toString()
-    }
-}
-
 dependencies {
-    providedCompile libs.javaee.api
+    providedCompile libs.jakartaee.api
 
     testImplementation libs.junit
 
-    integrationTestImplementation libs.arquillian.junit
-    integrationTestImplementation libs.arquillian.weld.embedded
-    integrationTestImplementation libs.weld.core
+    integrationTestImplementation libs.weld.junit4
     integrationTestImplementation libs.slf4j.simple
 }
 

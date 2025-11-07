@@ -1,20 +1,15 @@
 [versions]
 spring-dependency-management = "1.1.4"
-arquillian-bom = "1.1.13.Final"
-javaee-api = "7.0"
-junit = "4.12"
-arquillian-weld = "1.0.0.CR9"
-weld-core = "2.4.2.SP1"
-slf4j = "1.7.25"
+jakartaee-api = "10.0.0"
+junit = "4.13.2"
+weld-junit4 = "5.0.3.Final"
+slf4j = "2.0.12"
 pmd = "6.55.0"
 
 [libraries]
-javaee-api = { module = "javax:javaee-api", version.ref = "javaee-api" }
+jakartaee-api = { module = "jakarta.platform:jakarta.jakartaee-api", version.ref = "jakartaee-api" }
 junit = { module = "junit:junit", version.ref = "junit" }
-arquillian-bom = { module = "org.jboss.arquillian:arquillian-bom", version.ref = "arquillian-bom" }
-arquillian-junit = { module = "org.jboss.arquillian.junit:arquillian-junit-container" }
-arquillian-weld-embedded = { module = "org.jboss.arquillian.container:arquillian-weld-ee-embedded-1.1", version.ref = "arquillian-weld" }
-weld-core = { module = "org.jboss.weld:weld-core", version.ref = "weld-core" }
+weld-junit4 = { module = "org.jboss.weld:weld-junit4", version.ref = "weld-junit4" }
 slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
 
 [plugins]
