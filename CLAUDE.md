@@ -41,7 +41,7 @@ Integration tests run after unit tests as part of the `check` task.
 
 ## Technology Stack
 
-- **Java 21** with Jakarta EE 10
+- **Java 25** with Jakarta EE 11
 - **CDI** for dependency injection
 - **JAX-RS** for REST API (`/api/calculation` endpoint)
 - **JSF** for web interface
@@ -75,14 +75,14 @@ The key algorithm works by:
 
 ## Nix Development Environment
 
-The project includes a `flake.nix` for development with Java 21 (Zulu OpenJDK). Enter the environment with:
+The project includes a `flake.nix` for development with Java 25 (Zulu OpenJDK). Enter the environment with:
 ```bash
 nix develop
 ```
 
 ## Deployment
 
-The application is tested on WildFly 10.1.0+. Deploy using:
+The application is tested on WildFly 38+. Deploy using:
 ```bash
 ${WILDFLY_HOME}/bin/jboss-cli.sh
 connect
