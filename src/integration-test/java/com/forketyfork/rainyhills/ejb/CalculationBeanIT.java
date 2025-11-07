@@ -3,12 +3,15 @@ package com.forketyfork.rainyhills.ejb;
 import com.forketyfork.rainyhills.model.CalculationDataBean;
 import com.forketyfork.rainyhills.services.LinearVolumeCalculator;
 import jakarta.enterprise.context.SessionScoped;
-import org.jboss.weld.junit4.WeldInitiator;
-import org.junit.Rule;
-import org.junit.Test;
+import org.jboss.weld.junit5.WeldInitiator;
+import org.jboss.weld.junit5.WeldJunit5Extension;
+import org.jboss.weld.junit5.WeldSetup;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Integration test for checking the interaction between the {@link CalculationBean},
@@ -20,9 +23,10 @@ import static org.junit.Assert.assertEquals;
  * <p>
  * Created by Forketyfork on 26.03.17.
  */
+@ExtendWith(WeldJunit5Extension.class)
 public class CalculationBeanIT {
 
-    @Rule
+    @WeldSetup
     public WeldInitiator weld = WeldInitiator
             .from(CalculationBean.class, CalculationDataBean.class, LinearVolumeCalculator.class)
             .activate(SessionScoped.class)

@@ -1,12 +1,12 @@
 [versions]
 jakartaee-api = "10.0.0"
-junit = "4.13.2"
-weld-junit4 = "5.0.3.Final"
+junit-jupiter = "6.0.1"
+weld-junit = "5.0.3.Final"
 slf4j = "2.0.12"
 pmd = "7.9.0"
 
 [libraries]
 jakartaee-api = { module = "jakarta.platform:jakarta.jakartaee-api", version.ref = "jakartaee-api" }
-junit = { module = "junit:junit", version.ref = "junit" }
-weld-junit4 = { module = "org.jboss.weld:weld-junit4", version.ref = "weld-junit4" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+weld-junit5 = { module = "org.jboss.weld:weld-junit5", version.ref = "weld-junit" }
 slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }

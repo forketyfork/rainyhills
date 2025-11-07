@@ -1,6 +1,8 @@
 package com.forketyfork.rainyhills.services;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * A test case for the {@link LinearVolumeCalculator} with null-valued argument.
@@ -9,11 +11,11 @@ import org.junit.Test;
  */
 public class LinearVolumeCalculatorNullTest {
 
-    private VolumeCalculator calculator = new LinearVolumeCalculator();
+    private final VolumeCalculator calculator = new LinearVolumeCalculator();
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void whenListIsNull_thenException() {
-        calculator.calculate(null);
+        assertThrows(NullPointerException.class, () -> calculator.calculate(null));
     }
 
 }

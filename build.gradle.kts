@@ -41,9 +41,11 @@ val integrationTestRuntimeOnly by configurations.getting {
 dependencies {
     providedCompile(libs.jakartaee.api)
 
-    testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-    integrationTestImplementation(libs.weld.junit4)
+    integrationTestImplementation(libs.junit.jupiter)
+    integrationTestImplementation(libs.weld.junit5)
     integrationTestImplementation(libs.slf4j.simple)
 }
 
@@ -70,6 +72,7 @@ tasks.check {
 }
 
 tasks.withType<Test> {
+    useJUnitPlatform()
     reports.html.outputLocation = file("${project.layout.buildDirectory.get()}/reports/$name")
     javaLauncher = javaToolchains.launcherFor {
         languageVersion = JavaLanguageVersion.of(21)

@@ -12,6 +12,7 @@
         <exclude name="UnusedPrivateMethod"/>
         <exclude name="GuardLogStatement"/>
         <exclude name="UnnecessaryVarargsArrayCreation"/>
+        <exclude name="JUnit5TestShouldBePackagePrivate"/>
     </rule>
 
     <!-- Code Style -->
