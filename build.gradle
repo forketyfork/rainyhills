@@ -10,6 +10,9 @@ version = '0.0.1-SNAPSHOT'
 description = "rainyhills"
 
 java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
 }
@@ -61,8 +64,11 @@ task integrationTest(type: Test) {
 check.dependsOn integrationTest
 integrationTest.mustRunAfter test
 
-tasks.withType(Test) {
+tasks.withType(Test).configureEach {
     reports.html.outputLocation = file("${reporting.baseDir}/${name}")
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 // logging the test and integrationTest results during the build
