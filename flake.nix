@@ -1,5 +1,5 @@
 {
-  description = "Hyperskill Blockchain - Java 17 development environment";
+  description = "Hyperskill Blockchain - Java 21 development environment";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -16,14 +16,14 @@
     in {
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
-          zulu17
+          zulu21
           gradle
           kotlin
         ];
 
         shellHook = ''
-          export JAVA_HOME="${pkgs.zulu17.home}"
-          echo "Java 17 development environment"
+          export JAVA_HOME="${pkgs.zulu21.home}"
+          echo "Java 21 development environment"
           java -version
         '';
       };
