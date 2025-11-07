@@ -40,6 +40,7 @@ val integrationTestRuntimeOnly by configurations.getting {
 
 dependencies {
     providedCompile(libs.jakartaee.api)
+    providedCompile(libs.jaxb.api)
 
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
