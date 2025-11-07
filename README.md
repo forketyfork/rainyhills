@@ -16,11 +16,11 @@ This is optimal as any solution must examine all elements at least once.
 
 ### Prerequisites
 * JDK 25
-* WildFly 27+ or other Jakarta EE 10 compatible server
+* WildFly 27+ or other Jakarta EE 11 compatible server
 * Optionally: Nix with flakes enabled for reproducible development environment
 
 ### Frameworks
-* Jakarta EE 10 (JSF, CDI, JAX-RS)
+* Jakarta EE 11 (JSF, CDI, JAX-RS)
 * Bootstrap 4 for frontend styling
 * JUnit 4 for unit testing
 * Weld for integration testing of CDI components
@@ -62,7 +62,7 @@ To run tests separately:
 ```
 
 ### Running
-The application requires a Jakarta EE 10 compatible server such as WildFly 27+ or TomEE 10+.
+The application requires a Jakarta EE 11 compatible server such as WildFly 38+.
 
 Deployment on WildFly running in standalone mode:
 ```
