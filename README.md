@@ -15,7 +15,7 @@ The implementation uses a two-pass linear algorithm:
 This is optimal as any solution must examine all elements at least once.
 
 ### Prerequisites
-* JDK 21
+* JDK 25
 * WildFly 27+ or other Jakarta EE 10 compatible server
 * Optionally: Nix with flakes enabled for reproducible development environment
 
@@ -42,11 +42,11 @@ The frontend dependencies are located in the `src/main/webapp/resources` directo
 Due to the simplicity of the frontend, no frontend build or dependency management tool is used.
 
 ### Development Environment
-For a reproducible development environment with Java 21, use Nix:
+For a reproducible development environment with Java 25, use Nix:
 ```
 nix develop
 ```
-This will set up Java 21 (Zulu OpenJDK) and Gradle.
+This will set up Java 25 (Zulu OpenJDK) and Gradle.
 
 ### Building
 Building may be executed using the provided Gradle wrapper:

@@ -41,7 +41,7 @@ Integration tests run after unit tests as part of the `check` task.
 
 ## Technology Stack
 
-- **Java 21** with Jakarta EE 10
+- **Java 25** with Jakarta EE 10
 - **CDI** for dependency injection
 - **JAX-RS** for REST API (`/api/calculation` endpoint)
 - **JSF** for web interface
@@ -75,7 +75,7 @@ The key algorithm works by:
 
 ## Nix Development Environment
 
-The project includes a `flake.nix` for development with Java 21 (Zulu OpenJDK). Enter the environment with:
+The project includes a `flake.nix` for development with Java 25 (Zulu OpenJDK). Enter the environment with:
 ```bash
 nix develop
 ```

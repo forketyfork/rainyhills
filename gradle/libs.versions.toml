@@ -1,10 +1,10 @@
 [versions]
 jakartaee-api = "11.0.0"
-jaxb-api = "4.0.2"
+jaxb-api = "4.0.4"
 junit-jupiter = "6.0.1"
 weld-junit = "5.0.3.Final"
 slf4j = "2.0.17"
-pmd = "7.9.0"
+pmd = "7.18.0"
 
 [libraries]
 jakartaee-api = { module = "jakarta.platform:jakarta.jakartaee-api", version.ref = "jakartaee-api" }

@@ -5,6 +5,7 @@ import java.util.List;
 /**
  * Created by Forketyfork on 24.03.17.
  */
+@FunctionalInterface
 public interface VolumeCalculator {
 
     /**
