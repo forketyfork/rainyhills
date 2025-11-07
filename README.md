@@ -5,17 +5,25 @@
 ### Application Description
 Write an application which takes an array as an input, and calculates the volume of water which remained after the rain, in units.
 
-The application shall be deployable in a EJB container of your choice (preferably either JBoss, Wildfly, Glassfish, or TomEE).
+The application shall be deployable in a Jakarta EE container of your choice (preferably either JBoss, Wildfly, Glassfish, or TomEE).
 
-Make a statement on complexity of your solution (time and memory), and if possibly discuss complexity of an optimal solution.
+### Algorithm Complexity
+The implementation uses a two-pass linear algorithm:
+* **Time Complexity**: O(n) - two iterations through the input array
+* **Space Complexity**: O(n) - stores the maximum left wall height for each position
+
+This is optimal as any solution must examine all elements at least once.
+
 ### Prerequisites
-* JDK 1.8
-* Wildfly 10 or other Java EE server
+* JDK 21
+* WildFly 27+ or other Jakarta EE 10 compatible server
+* Optionally: Nix with flakes enabled for reproducible development environment
+
 ### Frameworks
-* Java EE 7 (JSF, EJB, JAX-RS)
+* Jakarta EE 10 (JSF, CDI, JAX-RS)
 * Bootstrap 4 for frontend styling
-* JUnit for unit testing
-* Arquillian for integration testing of EJB
+* JUnit 4 for unit testing
+* Weld for integration testing of CDI components
 * PMD for static code analysis
 ### Project structure
 The project follows a typical Gradle/Maven project structure, except that the integration tests
@@ -30,17 +38,33 @@ The Java sources are located under the `src/main/java` root in the following sub
 
 The localization bundles are present for English and Russian and are located in the `src/main/java/resources` directory.
 
-The frontend dependencies are located in the `src/main/webapp/resources` directory. 
+The frontend dependencies are located in the `src/main/webapp/resources` directory.
 Due to the simplicity of the frontend, no frontend build or dependency management tool is used.
+
+### Development Environment
+For a reproducible development environment with Java 21, use Nix:
+```
+nix develop
+```
+This will set up Java 21 (Zulu OpenJDK) and Gradle.
+
 ### Building
 Building may be executed using the provided Gradle wrapper:
 ```
 ./gradlew clean build
 ```
-After the build, the artifact is in `build/libs/rainyhills.war`.
+This runs unit tests, integration tests, and PMD analysis. After the build, the artifact is in `build/libs/rainyhills.war`.
+
+To run tests separately:
+```
+./gradlew test              # unit tests only
+./gradlew integrationTest   # integration tests only
+```
+
 ### Running
-The application was tested on WildFly 10.1.0. 
-Deployment on a server running in a standalone mode:
+The application requires a Jakarta EE 10 compatible server such as WildFly 27+ or TomEE 10+.
+
+Deployment on WildFly running in standalone mode:
 ```
 ${WILDFLY_HOME}/bin/jboss-cli.sh
 

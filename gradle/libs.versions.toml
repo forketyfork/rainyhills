@@ -1,16 +1,12 @@
 [versions]
-spring-dependency-management = "1.1.4"
 jakartaee-api = "10.0.0"
 junit = "4.13.2"
 weld-junit4 = "5.0.3.Final"
 slf4j = "2.0.12"
-pmd = "6.55.0"
+pmd = "7.9.0"
 
 [libraries]
 jakartaee-api = { module = "jakarta.platform:jakarta.jakartaee-api", version.ref = "jakartaee-api" }
 junit = { module = "junit:junit", version.ref = "junit" }
 weld-junit4 = { module = "org.jboss.weld:weld-junit4", version.ref = "weld-junit4" }
 slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
-
-[plugins]
-spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }

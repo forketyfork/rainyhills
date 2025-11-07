@@ -32,6 +32,7 @@ public class LinearVolumeCalculator implements VolumeCalculator, Serializable {
      * @param heights the list of wall heights
      * @return the volume of water gathered
      */
+    @Override
     public int calculate(List<Integer> heights) {
         Objects.requireNonNull(heights, "The heights list cannot be null");
 
