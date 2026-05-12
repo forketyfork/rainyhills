@@ -3,7 +3,7 @@ jakartaee-api = "11.0.0"
 jaxb-api = "4.0.5"
 junit-jupiter = "6.0.3"
 weld-junit = "5.0.3.Final"
-slf4j = "2.0.17"
+slf4j = "2.0.18"
 pmd = "7.18.0"
 
 [libraries]
