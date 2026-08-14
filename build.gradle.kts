@@ -30,11 +30,11 @@ sourceSets {
     }
 }
 
-val integrationTestImplementation by configurations.getting {
+val integrationTestImplementation = configurations.getByName("integrationTestImplementation") {
     extendsFrom(configurations.testImplementation.get())
 }
 
-val integrationTestRuntimeOnly by configurations.getting {
+val integrationTestRuntimeOnly = configurations.getByName("integrationTestRuntimeOnly") {
     extendsFrom(configurations.testRuntimeOnly.get())
 }
 
@@ -102,7 +102,7 @@ pmd {
     ruleSetFiles = files("pmd-ruleset.xml")
 }
 
-val stage by tasks.registering {
+val stage = tasks.register("stage") {
     dependsOn(tasks.build, tasks.clean)
 }
 
@@ -110,7 +110,7 @@ tasks.build {
     mustRunAfter(tasks.clean)
 }
 
-val copyToTarget by tasks.registering(Copy::class) {
+val copyToTarget = tasks.register<Copy>("copyToTarget") {
     into("target")
     from("${layout.buildDirectory.get()}/libs")
 }
